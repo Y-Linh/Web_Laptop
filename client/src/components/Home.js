@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+export default function Home() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -51,6 +51,4 @@ const Home = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}

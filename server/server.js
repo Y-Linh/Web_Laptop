@@ -10,8 +10,8 @@ app.use(cors());
 app.use(express.json({ limit: '20mb' }));
 
 mongoose.connect(process.env.MONGO_URL)
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => console.log('❌ MongoDB error:', err));
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log('MongoDB error:', err));
 
 // === Models === thay đổi User và Product nếu lưu trong collection khác (nên hỏi gpt để đổi)
 const User = mongoose.model('User', new mongoose.Schema({
@@ -108,7 +108,7 @@ app.delete('/api/products/:id', verifyToken, async (req, res) => {
   }
 });
 
-// ✅ Tìm ID lớn nhất trong một Category
+//  Tìm ID lớn nhất trong một Category
 app.get('/api/max-id/:category', verifyToken, async (req, res) => {
     try {
         const category = req.params.category;

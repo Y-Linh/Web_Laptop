@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const EditProduct = () => {
+export default function EditProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState(null);
@@ -62,6 +62,4 @@ const EditProduct = () => {
       <button className="btn btn-primary" onClick={handleSubmit}>Lưu thay đổi</button>
     </div>
   );
-};
-
-export default EditProduct;
+}

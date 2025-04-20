@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const AddProduct = () => {
+export default function AddProduct() {
   const [form, setForm] = useState({
     id: '',
     name: '',
@@ -86,6 +86,4 @@ const AddProduct = () => {
       <button className="btn btn-success" onClick={handleSubmit}>Thêm</button>
     </div>
   );
-};
-
-export default AddProduct;
+}
