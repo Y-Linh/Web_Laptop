@@ -27,8 +27,7 @@ export default function AddProduct({ onClose }) {
         },
       });
       const next = res.data.lastNumber + 1;
-      return `LAPTOP${categoryCode}
-      ${String(next).padStart(4, '0')}`;
+      return `LAPTOP${categoryCode}${String(next).padStart(4,'0')}`;
     } catch {
       return `LAPTOP${categoryCode}0001`;
     }
@@ -138,29 +137,8 @@ export default function AddProduct({ onClose }) {
 
   return (
     <div>
-      <nav className="flex justify-between items-center p-4 shadow bg-white sticky top-0 z-10">
-        <div className="text-xl font-bold text-blue-600 cursor-pointer" onClick={() => navigate('/home')}>
-          🛍️ MyShop
-        </div>
-        <div className="space-x-4">
-          <button onClick={() => navigate('/home')} className="text-gray-700 hover:text-blue-500">Sản phẩm</button>
-          <button onClick={() => navigate('/search')} className="text-gray-700 hover:text-blue-500">Tìm kiếm</button>
-          <button
-            onClick={() => {
-              localStorage.removeItem('token');
-              navigate('/login');
-            }}
-            className="text-red-500 font-semibold"
-          >
-            Đăng xuất
-          </button>
-        </div>
-      </nav>
       <div className="p-4 max-w-lg mx-auto">
-
         <h2 className="text-center display-8 mb-4">Thêm sản phẩm</h2>
-
-
 
         {form.category && (
           <div className="mb-2">
@@ -203,28 +181,32 @@ export default function AddProduct({ onClose }) {
         </select>
         <input className="form-control mb-2" placeholder="ID tự động" value={form.id} disabled />
         <input className="form-control mb-2" placeholder="Tên sản phẩm" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
-
         <textarea className="form-control mb-2" placeholder="Mô tả" value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} />
         <input type="number" className="form-control mb-2" placeholder="Giá" value={form.price} onChange={e => setForm({ ...form, price: e.target.value })} />
 
         <div className="mb-2">
           <label className="block">Chọn nhu cầu:</label>
           <button
-            className={`btn ${form.nhu_cau === 'Văn Phòng' ? 'btn-primary' : 'btn-light'} me-2`}
-            onClick={() => handleNhuCauChange('Văn Phòng')}> Văn Phòng
+            className={`btn ${form.nhu_cau === 'văn phòng' ? 'btn-primary' : 'btn-light'} me-2`}
+            onClick={() => handleNhuCauChange('văn phòng')}> văn phòng
           </button>
           <button
-            className={`btn ${form.nhu_cau === 'Gaming' ? 'btn-primary' : 'btn-light'} me-2`}
-            onClick={() => handleNhuCauChange('Gaming')}> Gaming
+            className={`btn ${form.nhu_cau === 'gaming' ? 'btn-primary' : 'btn-light'} me-2`}
+            onClick={() => handleNhuCauChange('gaming')}> gaming
           </button>
           <button
-            className={`btn ${form.nhu_cau === 'Đa dụng' ? 'btn-primary' : 'btn-light'}`}
-            onClick={() => handleNhuCauChange('Đa dụng')} >Đa dụng </button></div>
+            className={`btn ${form.nhu_cau === 'đa dụng' ? 'btn-primary' : 'btn-light'}`}
+            onClick={() => handleNhuCauChange('đa dụng')} >đa dụng </button>
+           <button
+            className={`btn ${form.nhu_cau === 'đồ họa' ? 'btn-primary' : 'btn-light'}`}
+            onClick={() => handleNhuCauChange('đồ họa')} >đồ họa </button> 
+            </div>
 
         <input type="file" className="form-control mb-2" onChange={handleImage} />
         {preview && <img src={preview} alt="preview" className="w-full h-40 object-cover mb-2" />}
         <div className="d-flex justify-content-between mt-2">
-          <button className="btn btn-success " onClick={handleSubmit}>Thêm</button></div>
+          <button className="btn btn-success " onClick={handleSubmit}>Thêm</button>
+        </div>
       </div>
     </div>
   );
