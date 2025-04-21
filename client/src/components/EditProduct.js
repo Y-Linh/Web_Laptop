@@ -11,8 +11,10 @@ export default function EditProduct() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/products/${id}`, {
-          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        const res = await axios.get
+        (`http://localhost:5000/api/products/${id}`, {
+          headers: { Authorization: 
+            `Bearer ${localStorage.getItem('token')}` }
         });
         setForm(res.data);
         setPreview(res.data.image);
@@ -50,7 +52,7 @@ export default function EditProduct() {
 
   return (
     <div className="p-4 max-w-lg mx-auto">
-      <h2 className="text-xl mb-4">Sửa sản phẩm</h2>
+      <h2 className="text-center display-8 mb-4">Sửa sản phẩm</h2>
       <input className="form-control mb-2" placeholder="ID" value={form.id} onChange={e => setForm({ ...form, id: e.target.value })} disabled />
       <input className="form-control mb-2" placeholder="Tên sản phẩm" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
       <input className="form-control mb-2" placeholder="Hãng" value={form.brand} onChange={e => setForm({ ...form, brand: e.target.value })} />
