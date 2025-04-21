@@ -129,4 +129,5 @@ app.get('/api/max-id/:category', verifyToken, async (req, res) => {
     }
 });
 
+
 app.listen(5000, () => console.log('🚀 Server is running at http://localhost:5000'));
